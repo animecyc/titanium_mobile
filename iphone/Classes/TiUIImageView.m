@@ -444,8 +444,12 @@ DEFINE_EXCEPTIONS
 
 -(void)cancelPendingImageLoads
 {
-	// cancel a pending request if we have one pending
-	[(TiUIImageViewProxy *)[self proxy] cancelPendingImageLoads];
+	if(self.proxy != nil)
+	{
+		// cancel a pending request if we have one pending
+		[(TiUIImageViewProxy *)[self proxy] cancelPendingImageLoads];
+  }
+
 	placeholderLoading = NO;
 }
 
