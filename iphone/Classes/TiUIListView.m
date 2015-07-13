@@ -1735,6 +1735,7 @@ static void NotifyRootDidDequeueRecursive(NSArray *children);
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if(!decelerate) {
+        [[ImageLoader sharedLoader] resume];
         [self fireScrollEnd:(UITableView *)scrollView];
     }
     if (![self.proxy _hasListeners:@"pullend"]) {
